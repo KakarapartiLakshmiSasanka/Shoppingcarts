@@ -22,4 +22,4 @@ module.exports = app;
 // var index=require('./routes/index.js');
 var index=require('./routes/index.js');
 app.use('/',index);
-app.use('/hi',index);
+
