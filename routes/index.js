@@ -20,17 +20,31 @@ const cn = {
 const db = pgp(cn); // database instance;
 
 
-router.get('/users',function(req,res,next){
-  db.any('SELECT * FROM Categories')
-    .then(function(data)  {
-      res.json({data:data});
+// router.post('/users',function(req,res,next){
+ 
+//   db.any('SELECT * FROM ategories')
+//     .then(function(data)  {
+//       res.json({data:data});
        
-    })
-    .catch(function(error) {
-      res.error({error:error});
+//     })
+//     .catch(function(error) {
+//       res.error({error:error});
         
-    })
-    .finally(db.$pool.end)});
+//     })
+//     .finally(db.$pool.end)
+//   });
+
+router.post('/groups',function(req,res,next){
+  db.any('SELECT * FROM Groups')
+  .then(function(data){
+    res.json({data:data});
+  })
+  .catch(function(error){
+    res.error({error:error});
+  })
+  .finally(db.$pool.end)
+
+});
 module.exports=router;
 
 
