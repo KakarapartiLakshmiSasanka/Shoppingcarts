@@ -19,27 +19,21 @@ module.exports = {
     isactive:true,
     createdAt:new Date(),
     updatedAt:new Date()
-  },
-  {
+   },
+   {
     id:2,
     name:'Men',
     description:'Deepavali sale',
-    groupId:1,
+    groupId:2,
     isactive:true,
     createdAt:new Date(),
     updatedAt:new Date()
-  },
-  {
-    id:3,
-    name:'Kids',
-    description:'Deepavali sale',
-    groupId:1,
-    isactive:true,
-    createdAt:new Date(),
-    updatedAt:new Date()
-  }
 
-])
+   }
+
+
+
+  ])
   },
 
   async down (queryInterface, Sequelize) {

@@ -1,28 +1,49 @@
-var express = require('express');
-var router = express.Router();
-const promise = require('bluebird'); // or any other Promise/A+ compatible library;
+var express=require('express');
+var router=express.Router();
+var userController=require('../controllers/userController.js');
 
-const initOptions = {
-    promiseLib: promise // overriding the default (ES6 Promise);
-};
-
-const pgp = require('pg-promise')(initOptions);
-// See also: http://vitaly-t.github.io/pg-promise/module-pg-promise.html
-
-// Database connection details;
-const cn = {
-    host: 'localhost', // 'localhost' is the default;
-    port: 5432, // 5432 is the default;
-    database: 'shoppingcart',
-    user: 'postgres',
-    password: 'sa'
-};
-const db = pgp(cn); // database instance;
+router.get('/categories',userController.getAll);
+router.get('/demo/product',userController.getAll);
 
 
-// router.post('/users',function(req,res,next){
+
+module.exports=router;
+
+
+
+
+
+
+
+
+
+
+
+// var express = require('express');
+// var router = express.Router();
+// const promise = require('bluebird'); // or any other Promise/A+ compatible library;
+
+// const initOptions = {
+//     promiseLib: promise // overriding the default (ES6 Promise);
+// };
+
+// const pgp = require('pg-promise')(initOptions);
+// // See also: http://vitaly-t.github.io/pg-promise/module-pg-promise.html
+
+// // Database connection details;
+// const cn = {
+//     host: 'localhost', // 'localhost' is the default;
+//     port: 5432, // 5432 is the default;
+//     database: 'shoppingcart',
+//     user: 'postgres',
+//     password: 'sa'
+// };
+// const db = pgp(cn); // database instance;
+
+
+// router.get('/users',function(req,res,next){
  
-//   db.any('SELECT * FROM ategories')
+//   db.any('SELECT * FROM Categories')
 //     .then(function(data)  {
 //       res.json({data:data});
        
@@ -33,19 +54,19 @@ const db = pgp(cn); // database instance;
 //     })
 //     .finally(db.$pool.end)
 //   });
+// module.exports=router;
+// router.post('/groups',function(req,res,next){
+//   db.any('SELECT * FROM Groups')
+//   .then(function(data){
+//     res.json({data:data});
+//   })
+//   .catch(function(error){
+//     res.error({error:error});
+//   })
+//   .finally(db.$pool.end)
 
-router.post('/groups',function(req,res,next){
-  db.any('SELECT * FROM Groups')
-  .then(function(data){
-    res.json({data:data});
-  })
-  .catch(function(error){
-    res.error({error:error});
-  })
-  .finally(db.$pool.end)
+// });
 
-});
-module.exports=router;
 
 
   
