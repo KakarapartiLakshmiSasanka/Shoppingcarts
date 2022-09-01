@@ -1,15 +1,16 @@
 var express=require('express');
 var router=express.Router();
 var userController=require('../controllers/userController.js');
+var groupController=require('../controllers/groupController.js');
+var productController=require('../controllers/productController.js');
 
-router.get('/categories',userController.getAll);
-router.get('/demo/product',userController.getAll);
-
+router.get('/api/categories',userController.getAll);
+router.get('/api/groups',groupController.getAll);
+router.get('/api/products',productController.getAll);
+router.get('api/products/:id',productController.findOne);
 
 
 module.exports=router;
-
-
 
 
 
