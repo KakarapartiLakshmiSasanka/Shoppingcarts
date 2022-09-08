@@ -5,6 +5,9 @@ module.exports.getAll=function(req,res){
         res.send(users);
     })
 }
-module.exports.findOne=function(req,res){
-  Model.Product.getbyId
+module.exports.getById=function(req,res){
+  Model.Product.getBYId('SELECT * FROM Product WHERE id=$1',[id])
+  .then(function(users){
+    res.send(users);
+  })
 }
