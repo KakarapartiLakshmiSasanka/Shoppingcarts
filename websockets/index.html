@@ -1,4 +1,55 @@
-<h1>websockets.....experience the live chatting</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client 1</title>
+</head>
+<body>
+   <input type="text" name="messageBox" id="messageBox">
+   <button type="button" id="sendBtn">Send</button>
+
+   <div class="container">
+       <div class="receive-message">
+           <p id="message"></p>
+       </div>
+   </div>
+</body>
+<script type="text/javascript">
+
+    var sendBtn = document.getElementById("sendBtn");
+    var messageBox = document.getElementById("messageBox");
+
+    var socket = new WebSocket("ws://localhost:3000");
+
+    sendBtn.addEventListener("click",()=>{
+        let val = messageBox.value;
+        socket.send(val);
+    });
+
+    socket.addEventListener("open",function(event){
+        socket.send("Connected.....");
+    });
+
+    socket.addEventListener('message',function(event){
+        var string_arr =JSON.parse(event['data']).data;
+        var string = "";
+
+        string_arr.forEach(element => {
+            string+=String.fromCharCode(element);
+        });
+        
+        console.log(string);
+    });
+</script>
+</html>
+
+
+
+
+
+<!-- <h1>websockets.....experience the live chatting</h1>
 <pre id="messages" style="height: 400px; overflow: scroll"></pre>
 <input type="text" id="messageBox" placeholder="Type your message here" style="display: block; width: 100%; margin-bottom: 10px; padding: 10px;" />
 <button id="send" title="Send Message!" style="width: 100%; height: 30px;">Send Message</button>
@@ -46,4 +97,4 @@
     init();
   })();
 </script>
-Footer
+Footer -->
