@@ -5,3 +5,11 @@ module.exports.getAll=function(req,res){
         res.send(users);
     })
 }
+// module.exports.getAllWithCategories = function (req, res) {
+//     Model.Groups.findAll({ include: Model.Categories })
+//       .then(function (groups) {
+//         res.send(groups);
+//       })
+//   }
+  
+  

@@ -21,5 +21,6 @@ app.use(express.static(path.join(__dirname,'routes')));
 module.exports = app;
 // var index=require('./routes/index.js');
 var index=require('./routes/index.js');
+app.listen(3000,()=>console.log('server is running at port:3000'));
 app.use('/',index);
 

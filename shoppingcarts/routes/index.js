@@ -8,6 +8,7 @@ router.get('/api/categories',userController.getAll);
 router.get('/api/groups',groupController.getAll);
 router.get('/api/products',productController.getAll);
 router.get('api/products/:id',productController.getById);
+// router.get('/withcategories',groupController.getAllWithCategories);
 
 
 module.exports=router;
