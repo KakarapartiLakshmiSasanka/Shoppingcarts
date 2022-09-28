@@ -4,10 +4,10 @@ var userController=require('../controllers/userController.js');
 var groupController=require('../controllers/groupController.js');
 var productController=require('../controllers/productController.js');
 
-router.get('/api/categories',userController.getAll);
+router.get('/api/categories', userController.getAll);
 router.get('/api/groups',groupController.getAll);
 router.get('/api/products',productController.getAll);
-router.get('api/products/:id',productController.getById);
+// router.get('api/products/:id',productController.getById);
 // router.get('/withcategories',groupController.getAllWithCategories);
 
 

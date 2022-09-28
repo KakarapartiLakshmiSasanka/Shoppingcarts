@@ -16,11 +16,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname,'routes')));
 
 // app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+var users=require('./routes/users.js');
+app.use('/users', users);
 
 module.exports = app;
 // var index=require('./routes/index.js');
 var index=require('./routes/index.js');
-app.listen(3000,()=>console.log('server is running at port:3000'));
+
+//app.listen(3000,()=>console.log('server is running at port:3000'));
 app.use('/',index);
 
