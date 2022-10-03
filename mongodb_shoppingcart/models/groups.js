@@ -1,21 +1,22 @@
-'use strict';
-module.exports = mongoose => {
-  const newSchema = new mongoose.Schema({
-    name: {
-      type: String
-    },
-    description: {
-      type: String
-    },
-    isactive: {
-      type: Boolean
-    }
-  }, {
-    timestamps: {
-      createdAt: 'created_at',
-      updatedAt: 'updated_at'
-    }
-  });
-  const groups = mongoose.model('groups', newSchema);
-  return groups;
-};
+const mongoose=require('mongoose');
+const groupSchema=new mongoose.Schema({
+    name:String,
+    description:String,
+    isactive:Boolean
+})
+
+
+// const mongoose = require('mongoose');
+
+
+// const groupSchema = new mongoose.Schema({
+
+//     name:String,
+
+//     description:String,
+//     isactive:Boolean,
+
+   
+// });
+//   const Group = mongoose.model('Groups', groupSchema);
+//   module.exports=Group;
